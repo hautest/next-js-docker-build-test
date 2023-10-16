@@ -6,7 +6,6 @@ function MyApp({ Component, pageProps }) {
     console.log("app.js");
     console.log("app.js");
     console.log("app.js");
-    console.log("app.js");
   }, []);
 
   return <Component {...pageProps} />;
