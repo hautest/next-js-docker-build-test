@@ -20,8 +20,10 @@ jobs:
         uses: actions/cache@v2
         with:
           path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          key: ${{ runner.os }}-buildx-${{ hashFiles('Dockerfile') }}-${{ hashFiles('package.json') }}-${{ hashFiles('yarn.lock') }}
           restore-keys: |
+            ${{ runner.os }}-buildx-${{ hashFiles('Dockerfile') }}}-${{ hashFiles('package.json') }}-
+            ${{ runner.os }}-buildx-${{ hashFiles('Dockerfile') }}-
             ${{ runner.os }}-buildx-
 
       - name: Build Docker image
